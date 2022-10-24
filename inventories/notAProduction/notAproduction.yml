@@ -1,0 +1,26 @@
+all:
+  vars:
+    ansible_connection: ssh
+    #FOR SSH CONNECT
+    ansible_user: user
+
+  children:
+    testServers:
+      hosts:
+        1.2.3.4:
+        5.6.7.8:
+        9.10.11.12:
+        13.14.15.16:
+      vars:
+        #ansible_ssh_common_args: '-o ProxyCommand="ssh -W %h:%p {{ ansible_user }}@{{ inventory_hostname }}"'
+        ansible_ssh_extra_args: '-R 4444:localhost:8080'
+
+[all:vars]
+ansible_connection=ssh
+ansible_user=root
+ansible_ssh_pass=root
+
+[notAproduction]
+10.60.212.200
+10.60.212.241b
+  10.60.37.30

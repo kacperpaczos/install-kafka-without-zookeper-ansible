@@ -1,0 +1,18 @@
+- name: Config Redis, Kafka and CCS
+  hosts: notAproduction
+  become: yes
+  gather_facts: True
+
+  tasks:
+    - name: Install redis
+      import_role:
+        name: redis
+
+    - name: Install kafka
+      import_role:
+        name: kafka
+
+    - name: Install CCS
+      import_role:
+        name: CCS
+

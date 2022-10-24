@@ -1,0 +1,3 @@
+---
+# vars file for kafka
+kafka_unit_path: /lib/systemd/system/kafka.service
